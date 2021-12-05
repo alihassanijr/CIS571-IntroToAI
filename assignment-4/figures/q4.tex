@@ -1,0 +1,21 @@
+\tikzset{
+  treenode/.style = {align=center, inner sep=0pt, text centered,
+    font=\sffamily},
+  arn_n/.style = {treenode, circle, white, font=\sffamily\bfseries, draw=black,
+    fill=black, text width=3.5em},% arbre rouge noir, noeud noir
+  arn_r/.style = {treenode, circle, red, draw=red, 
+    text width=3.5em, very thick},% arbre rouge noir, noeud rouge
+  arn_x/.style = {treenode, rectangle, draw=black,
+    minimum width=0.5em, minimum height=0.5em}% arbre rouge noir, nil
+}
+
+\begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 2cm/#1,
+  level distance = 2.5cm}] 
+\node [arn_n] {Coin}
+    child{ node [arn_r] {Flip \# 1}}
+    child{ node [arn_r] {Flip \# 2}}
+    child{ node [arn_r] {Flip \# 3}}
+    child{ node [arn_r] {Flip \# 4}}
+    child{ node [arn_r] {Flip \# 5}}
+; 
+\end{tikzpicture}

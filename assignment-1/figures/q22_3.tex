@@ -1,0 +1,47 @@
+
+\tikzset{
+  treenode/.style = {align=center, inner sep=0pt, text centered,
+    font=\sffamily},
+  arn_n/.style = {treenode, circle, white, font=\sffamily\bfseries, draw=black,
+    fill=black, text width=1.5em},
+  arn_r/.style = {treenode, circle, red, draw=red, 
+    text width=1.5em, very thick},
+  arn_b/.style = {treenode, circle, blue, draw=blue, 
+    text width=1.5em, very thick},
+  arn_x/.style = {treenode, rectangle, draw=black,
+    minimum width=0.5em, minimum height=0.5em}
+}
+
+
+\begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 5cm/#1,
+  level distance = 1.5cm}] 
+
+\node [arn_n] {St}
+    child{ node [arn_n] {A} 
+            child{ node [arn_n] {B} 
+                child{ node [arn_b] {D} 
+                }
+            }
+            child{ node [arn_n] {F}
+                child{ node [arn_b] {D} 
+                }
+            }                            
+    }
+    child{ node [arn_n] {C}
+        child{ node [arn_n] {A}
+                child{ node [arn_b] {B} 
+                }
+                child{ node [arn_b] {F} 
+                }
+        } 
+        child{ node [arn_n] {E}
+                child{ node [arn_b] {G} 
+                }
+                child{ node [arn_b] {F} 
+                }
+        } 
+	}
+; 
+
+\end{tikzpicture}
+

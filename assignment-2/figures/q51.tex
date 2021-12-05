@@ -1,0 +1,56 @@
+
+\tikzset{
+  regnode/.style = {align=center, inner sep=0pt, text centered,
+    font=\sffamily},
+  treenode/.style = {align=center, inner sep=0pt, text centered,
+    font=\sffamily},
+  leaf/.style = {treenode, black, draw=black, fill=white, font=\sffamily\bfseries,
+  text width=1.5em, minimum height=1.5em},
+  arn_n/.style = {treenode, circle, white, font=\sffamily\bfseries, draw=black,
+    fill=black, text width=1.5em},
+  max_n/.style = {regular polygon, regular polygon sides=3, white, font=\sffamily\bfseries, draw=blue, fill=blue},
+  min_n/.style = {regular polygon, regular polygon sides=3, shape border rotate=180, white, font=\sffamily\bfseries, draw=red, fill=red},
+  arn_r/.style = {treenode, circle, red, draw=red, 
+    text width=1.5em, very thick},
+  arn_b/.style = {treenode, circle, blue, draw=blue, 
+    text width=1.5em, very thick},
+  arn_g/.style = {treenode, circle, white, draw=mgreen, fill=mgreen, 
+    text width=1.5em, very thick},
+  arn_w/.style = {treenode, circle, gray, draw=gray, 
+    text width=1.5em, very thick},
+  arn_x/.style = {treenode, rectangle, draw=black,
+    minimum width=0.5em, minimum height=0.5em}
+}
+
+
+\begin{tikzpicture}[level 1/.style={sibling distance = 5cm}, level 2/.style={sibling distance=1.5cm}] 
+
+\node [min_n] {3}
+	child{ node [arn_n] {3}
+    	child{ node [leaf] {3}
+    	edge from parent node[left] {}}
+    	child{ node [leaf] {2}
+    	edge from parent node[left] {}}
+    	child{ node [leaf] {4}
+    	edge from parent node[left] {}}
+	edge from parent node[above left] {}}
+	child{ node [arn_n] {5}
+    	child{ node [leaf] {10}
+    	edge from parent node[left] {}}
+    	child{ node [leaf] {0}
+    	edge from parent node[left] {}}
+    	child{ node [leaf] {5}
+    	edge from parent node[left] {}}
+	edge from parent node[above left] {}}
+	child{ node [arn_n] {7}
+    	child{ node [leaf] {6}
+    	edge from parent node[left] {}}
+    	child{ node [leaf] {8}
+    	edge from parent node[left] {}}
+    	child{ node [leaf] {7}
+    	edge from parent node[left] {}}
+	edge from parent node[above left] {}}
+;
+
+\end{tikzpicture}
+

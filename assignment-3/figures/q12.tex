@@ -1,0 +1,31 @@
+\begin{tikzpicture}[
+        > = stealth, % arrow head style
+        shorten > = 1pt, % don't touch arrow head to node
+        auto,
+        node distance = 3cm, % distance between nodes
+        semithick % line style
+    ]
+
+    \tikzstyle{every state}=[
+        draw = black,
+        thick,
+        fill = white,
+        minimum size = 4mm
+    ]
+
+    \node[state] (A) {$A$};
+    \node[state] (B) [above right of=A] {$B$};
+    \node[state] (C) [below right of=A] {$C$};
+    \node[state] (D) [right of=B] {$D$};
+    \node[state] (E) [right of=C] {$E$};
+    \node[state] (F) [below right of=D] {$F$};
+
+    \path[->] (A) edge node {0.5} (B);
+    \path[->] (A) edge node {0.5} (C);
+    \path[->] (B) edge node {1.0} (D);
+    \path[->] (C) edge node {0.5} (B);
+    \path[->] (C) edge node {0.5} (E);
+    \path[->] (D) edge node {1.0} (F);
+    \path[->] (E) edge node {0.5} (D);
+    \path[->] (E) edge node {0.5} (F);
+\end{tikzpicture}

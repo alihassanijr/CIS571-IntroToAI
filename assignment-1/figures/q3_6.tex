@@ -1,0 +1,47 @@
+
+\tikzset{
+  regnode/.style = {align=center, inner sep=0pt, text centered,
+    font=\sffamily},
+  treenode/.style = {align=center, inner sep=0pt, text centered,
+    font=\sffamily},
+  arn_n/.style = {treenode, circle, white, font=\sffamily\bfseries, draw=black,
+    fill=black, text width=1.5em},
+  arn_r/.style = {treenode, circle, red, draw=red, 
+    text width=1.5em, very thick},
+  arn_b/.style = {treenode, circle, blue, draw=blue, 
+    text width=1.5em, very thick},
+  arn_w/.style = {treenode, circle, gray, draw=gray, 
+    text width=1.5em, very thick},
+  arn_x/.style = {treenode, rectangle, draw=black,
+    minimum width=0.5em, minimum height=0.5em}
+}
+
+
+\begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 5cm/#1,
+  level distance = 1.5cm}] 
+
+\node [arn_r] {St}
+	child{ node [arn_n] {A}
+        child{ node [arn_w] {B}
+        edge from parent node[above left, gray] {6}}
+        child{ node [arn_n] {C}
+            child{ node [arn_w] {G}
+            edge from parent node[above right, gray] {12}}
+        edge from parent node[above right] {6}}
+        child{ node [arn_w] {D}
+        edge from parent node[above right, gray] {5}}
+	edge from parent node[above left] {5}}
+    child{ node [arn_r] {B}
+        child{ node [arn_n] {D}
+            child{ node [arn_w] {G}
+            edge from parent node[above right, gray] {10}}
+        edge from parent node[above left] {8}}
+        child{ node [arn_r] {G}
+        edge from parent node[above right, red] {11}}
+    edge from parent node[above right, red] {4}}
+;
+
+\node [regnode, yshift=+50pt] {fringe-closed=\{S, A, B, D, G, C\}};
+\node [regnode, yshift=+25pt] {fringe=\{\}};
+\end{tikzpicture}
+
